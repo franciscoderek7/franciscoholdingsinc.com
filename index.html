@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francisco Holdings Inc. | 460-Floor Vertical Empire</title>
+<style>
+:root{--bg:#050505;--surface:#0a0a0a;--surface-raised:#111;--border:#1a1a1a;--text:#e8e8e8;--text-secondary:#888;--text-tertiary:#555;--gold:#d4af37;--gold-bright:#ffd700;--emerald:#00d4aa;--red:#ff4444}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+.chip-core{width:280px;height:280px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:corePulse 4s infinite}
+@keyframes corePulse{0%,100%{box-shadow:0 0 30px rgba(212,175,55,0.2)}50%{box-shadow:0 0 60px rgba(212,175,55,0.4)}}
+.fh-logo{font-size:64px;font-weight:700;color:var(--gold);letter-spacing:8px}
+.hero h1{font-size:18px;color:var(--text-secondary);letter-spacing:12px;margin-top:16px}
+.hero-sub{font-size:14px;color:var(--text-tertiary);margin-top:8px;letter-spacing:4px}
+.section{padding:80px 20px;max-width:1100px;margin:0 auto}
+.section-title{font-size:28px;color:var(--gold);margin-bottom:12px;letter-spacing:2px}
+.floor1{background:linear-gradient(180deg,var(--bg) 0%,rgba(0,212,170,0.03) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.floor1-badge{display:inline-block;background:rgba(0,212,170,0.1);border:1px solid var(--emerald);color:var(--emerald);padding:4px 16px;border-radius:20px;font-size:12px;letter-spacing:3px;margin-bottom:20px}
+.floor1-content{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:768px){.floor1-content{grid-template-columns:1fr}}
+.floor1-quote{font-size:22px;font-style:italic;border-left:3px solid var(--emerald);padding-left:20px}
+.floor1-quote span{color:var(--emerald);font-weight:500;font-style:normal}
+.floor1-avatar{width:120px;height:120px;border:2px solid var(--emerald);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.floor1-avatar-inner{font-size:48px;color:var(--emerald)}
+.floor1-name{text-align:center;font-size:20px;color:var(--emerald);letter-spacing:3px}
+.floor1-title{text-align:center;font-size:13px;color:var(--text-secondary);letter-spacing:2px}
+.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}
+@media(max-width:768px){.thesis-grid{grid-template-columns:1fr}}
+.thesis-card{background:var(--surface-raised);border:1px solid var(--border);border-radius:12px;padding:24px}
+.thesis-card h3{font-size:16px;color:var(--gold);margin-bottom:12px}
+.thesis-card p{color:var(--text-secondary);font-size:14px;line-height:1.6}
+.thesis-card .metric{font-size:32px;color:var(--gold);font-weight:500;margin:12px 0}
+.thesis-divider{text-align:center;margin:40px 0;color:var(--text-tertiary);font-size:13px;letter-spacing:4px}
+.floor-stack{padding:40px 0}
+.floor-layer{height:60px;background:linear-gradient(90deg,var(--surface-raised),var(--surface));border:1px solid var(--border);border-radius:8px;margin-bottom:8px;display:flex;align-items:center;padding:0 24px;cursor:pointer}
+.floor-layer:hover{border-color:var(--gold)}
+.floor-layer .floor-name{flex:1;font-size:14px}
+.floor-layer .floor-status{font-size:11px;padding:2px 10px;border-radius:4px;background:rgba(0,212,170,0.1);color:var(--emerald)}
+.floor-layer.active{border-color:var(--emerald)}
+.floor-layer.warn{border-color:var(--red)}
+.company-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media(max-width:768px){.company-grid{grid-template-columns:repeat(2,1fr)}}
+.company-node{background:var(--surface-raised);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;cursor:pointer}
+.company-node:hover{border-color:var(--gold)}
+.company-node .node-icon{font-size:24px;margin-bottom:8px}
+.company-node .node-name{font-size:13px;font-weight:500}
+.dash-panel{background:var(--surface-raised);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:20px}
+.dash-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.dash-metric{text-align:center}
+.dash-metric .val{font-size:28px;color:var(--gold);font-weight:500}
+.dash-metric .lbl{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.cta-section{text-align:center;padding:100px 20px}
+.cta-title{font-size:32px;color:var(--gold);margin-bottom:16px}
+.cta-btn{padding:14px 32px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;border:none;background:var(--gold);color:#000}
+.footer{border-top:1px solid var(--border);padding:40px 20px;text-align:center;color:var(--text-tertiary);font-size:12px}
+.footer-disclaimer{max-width:700px;margin:0 auto 20px;color:var(--text-secondary);font-size:11px;line-height:1.6}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="chip-core"><div class="fh-logo">FH</div></div>
+<h1>Francisco Holdings Inc.</h1>
+<div class="hero-sub">460-Floor Vertical Empire | Phoenix Dominion</div>
+</section>
+<section class="section floor1">
+<div class="floor1-badge">FLOOR 1 — RESERVED</div>
+<div class="floor1-content">
+<div>
+<div class="floor1-avatar"><div class="floor1-avatar-inner">👁</div></div>
+<div class="floor1-name">THE OBSERVER</div>
+<div class="floor1-title">Trent University — Honours Graduate | Age 22</div>
+</div>
+<div>
+<div class="floor1-quote">"She has her father's eyes, his nose, and his silence. <span>The quiet ones see everything.</span> This floor is hers. Whatever she builds here will outlast us all."</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title">The Vertical Thesis</div>
+<div class="thesis-divider">CHINA'S 3D CHIP vs FHI'S EMPIRE TOWER</div>
+<div class="thesis-grid">
+<div class="thesis-card"><h3>Dongfang Suanxin DF1000</h3><div class="metric">520 TOPS</div><p>14nm process. Memory sits atop logic. Data flows upward instead of sideways.</p></div>
+<div class="thesis-card"><h3>Francisco Holdings Tower</h3><div class="metric">460 Floors</div><p>45+ companies stacked vertically. Each floor is a company. Each company is a weapon.</p></div>
+</div>
+</section>
+<section class="section">
+<div class="section-title">Empire Stack</div>
+<div class="floor-stack">
+<div class="floor-layer active"><span class="floor-name">Floor 460: Apex — Strategic Command</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer"><span class="floor-name">Floor 10: PrimeDox AI Commercial</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer warn"><span class="floor-name">Floor 9: Vigilax</span><span class="floor-status" style="color:var(--red)">DEGRADED</span></div>
+<div class="floor-layer"><span class="floor-name">Floor 6: Vault Velocity Auto</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer"><span class="floor-name">Floor 5: CCC</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer"><span class="floor-name">Floor 4: CCLDR.net</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer"><span class="floor-name">Floor 3: PrimeDox AI HQ</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer"><span class="floor-name">Floor 2: OmniAGuard</span><span class="floor-status">ACTIVE</span></div>
+<div class="floor-layer active"><span class="floor-name">Floor 1: Reserved — The Observer</span><span class="floor-status">ACTIVE</span></div>
+</div>
+</section>
+<section class="section">
+<div class="section-title">Phoenix Core</div>
+<div class="dash-panel">
+<div class="dash-row">
+<div class="dash-metric"><div class="val">12,847</div><div class="lbl">Agents Online</div></div>
+<div class="dash-metric"><div class="val">0</div><div class="lbl">Active Threats</div></div>
+<div class="dash-metric"><div class="val">100%</div><div class="lbl">Shield Integrity</div></div>
+<div class="dash-metric"><div class="val">$0</div><div class="lbl">Empire Revenue</div></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="section-title">Empire Nodes</div>
+<div class="company-grid">
+<div class="company-node" onclick="window.open('https://franciscoholdingsinc.com','_self')"><div class="node-icon">🏗</div><div class="node-name">FHI Tower</div></div>
+<div class="company-node" onclick="window.open('https://omniaguard.com','_blank')"><div class="node-icon">🛡</div><div class="node-name">OmniAGuard</div></div>
+<div class="company-node" onclick="window.open('https://zprimedoxaihq.com','_blank')"><div class="node-icon">🧠</div><div class="node-name">PrimeDox AI</div></div>
+<div class="company-node" onclick="window.open('https://ccldr.net','_blank')"><div class="node-icon">⚖</div><div class="node-name">CCLDR.net</div></div>
+<div class="company-node"><div class="node-icon">🌿</div><div class="node-name">CCC</div></div>
+<div class="company-node" onclick="window.open('https://vaultvelocityauto.ca','_blank')"><div class="node-icon">🏎</div><div class="node-name">Vault Velocity</div></div>
+</div>
+</section>
+<section class="cta-section">
+<div class="cta-title">Invest in the Empire</div>
+<button class="cta-btn" onclick="alert('PayPal: $49 Start Free Trial')">💎 Invest in the Empire</button>
+</section>
+<footer class="footer">
+<div class="footer-disclaimer"><strong>Legal Notice:</strong> Derek Francisco (Doc Weedlaw) is a legal educator and constitutional advocate with 20+ years of self-represented litigation experience. This platform provides knowledge, education, and personal experience only — NOT legal representation. No lawyer-client relationship is formed.</div>
+<div>© 2026 Francisco Holdings Inc. | Phoenix Dominion | All PINs: Cisco1170$</div>
+</footer>
+</body>
+</html>
